@@ -60,6 +60,4 @@ class Reservation {
     public function __toString() {
         return $this->dateDebut." ".$this->dateFin." ".$this->chambre." ".$this->client;
     }
-
-
 }

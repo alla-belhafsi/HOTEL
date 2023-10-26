@@ -82,6 +82,7 @@ class Client {
             $dateDebut = new DateTime($reservation->getDateDebut("Y-m-d"));
             $dateFin = new DateTime($reservation->getDateFin("Y-m-d"));
             $dureeReservation = $dateDebut->diff($dateFin);
+            
             $coutReservation = $reservation->getChambre()->getPrix() * $dureeReservation->days;
             $coutTotal += $coutReservation;
         }

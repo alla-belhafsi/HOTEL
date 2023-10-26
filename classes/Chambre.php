@@ -76,5 +76,4 @@ class Chambre {
     public function addReservation(Reservation $reservation) {
         $this->reservations[] = $reservation;
     }
-
 }

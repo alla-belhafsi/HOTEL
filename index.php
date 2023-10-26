@@ -4,15 +4,10 @@ spl_autoload_register(function($class_name) {
     require 'classes/'.$class_name.'.php';
 });
 
-
-
-
-
 // Hotel
 
 $hh = new Hotel("Hilton", "****", "10 route de la Gare", "67000", "Strasbourg");
 $hg = new Hotel("Regent", "****", "61 rue Dauphine", "75006", "Paris");
-
 
 // Client
 

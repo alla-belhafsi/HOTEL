@@ -85,6 +85,7 @@ class Hotel {
 
     public function getInfos() {
         $result = "<br><b>".$this->nomHotel." ".$this->etoile." ".$this->ville."</b><br>".$this->adresse." ".$this->cp." ".$this->ville;
+        
         $result .= "<br>Nombre de chambres : ".count($this->chambres)."<br>Nombre de chambres réservées : ". count($this->reservations)."<br>Nombre de chambres dispo : ".count($this->chambres) - count($this->reservations)."<br>";
         return $result;
     }
