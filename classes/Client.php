@@ -64,7 +64,8 @@ class Client {
         else{
             $result .= "<br>";
         }
-
+        
+        // Initialiser $coutTotal à 0 pour pouvoir obtenir le total aprés la boucle
         $coutTotal = 0;
 
         foreach($this->reservations as $reservation) {
@@ -78,12 +79,16 @@ class Client {
                 $result .= "non) du ";
             }
 
+        // Calcul de la durée d'une réservation d'une personne
             $result .= $reservation->getDateDebut("d-m-Y")." au ".$reservation->getDateFin("d-m-Y")."<br>";
             $dateDebut = new DateTime($reservation->getDateDebut("Y-m-d"));
             $dateFin = new DateTime($reservation->getDateFin("Y-m-d"));
             $dureeReservation = $dateDebut->diff($dateFin);
-            
+
+        // La valeur total d'une réservation   
             $coutReservation = $reservation->getChambre()->getPrix() * $dureeReservation->days;
+
+        //La valeur total de toutes les réservations    
             $coutTotal += $coutReservation;
         }
         $result .= "Total : ".$coutTotal." €";

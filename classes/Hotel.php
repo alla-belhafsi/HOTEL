@@ -97,7 +97,11 @@ class Hotel {
             $result .= "Aucune réservation !";
         }
 
-        elseif(count($this->reservations)>0) {
+        elseif(count($this->reservations)==1) {
+            $result .= count($this->reservations)." Réservation<br>";
+        }
+
+        elseif(count($this->reservations)>1) {
             $result .= count($this->reservations)." Réservations<br>";
         }
 
