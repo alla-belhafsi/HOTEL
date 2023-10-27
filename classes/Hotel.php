@@ -79,8 +79,9 @@ class Hotel {
         $this->chambres[] = $chambre;
     }
 
-    public function addReservation(Reservation $reservation) {
+     public function addReservation(Reservation $reservation) {
         $this->reservations[] = $reservation;
+        $reservation->getChambre()->isReservee();
     }
 
     public function getInfos() {
@@ -114,4 +115,36 @@ class Hotel {
     public function __toString() {
         return $this->nomHotel." ".$this->etoile." ".$this->ville."<br>".$this->adresse." ".$this->cp." ".$this->ville;
     }
+
+    function afficherTableStatus() {
+        $chambres = $this->chambres;
+        ksort($chambres);
+        $result = "<table>
+                    <thead>
+                        <tr>
+                            <th>CHAMBRE</th>
+                            <th>PRIX</th>
+                            <th>WIFI</th>
+                            <th>ETAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+    
+        foreach ($chambres as $numChambre => $chambre) {
+            $couleur = ($chambre->getEtat()) ? "green" : "red";
+            $result .= "<tr>
+                            <td>Chambre " . $chambre->getNumChambre() . "</td>
+                            <td>" . $chambre->getPrix() . " €</td>
+                            <td>" . ($chambre->getWifi() ? '&#x1F4F6' : '') . "</td>
+                            <td style='color:white;background-color:". $couleur ."'>" . ($chambre->getEtat() ? 'DISPONIBLE' : 'RESERVEE') . "</td>
+                        </tr>";
+        }
+    
+        $result .= "</tbody>
+                    </table>";
+    
+        return $result;
+    }
+    
+    
 }
