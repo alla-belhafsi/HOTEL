@@ -119,7 +119,7 @@ class Hotel {
     function afficherTableStatus() {
         $chambres = $this->chambres;
         ksort($chambres);
-        $result = "<table>
+        $result = "<table border=1>
                     <thead>
                         <tr>
                             <th>CHAMBRE</th>
@@ -140,11 +140,7 @@ class Hotel {
                         </tr>";
         }
     
-        $result .= "</tbody>
-                    </table>";
-    
+        $result .= "</tbody></table>";
         return $result;
     }
-    
-    
 }
